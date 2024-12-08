@@ -22,7 +22,7 @@ This is a weather application built using React and Vite, designed to provide re
 5. **Responsive Design**: Styled using bootstrap application to make it user-friendly across various devices.
 
 ## Live Site
-Check out the live version of the application at:
+Check out the live version of the application at: https://weatherappallovertheworld.netlify.app/
 
 ## Usage Instructions
 1. Clone the repository:

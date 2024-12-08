@@ -31,7 +31,7 @@ const App = () => {
       setForecast(null);
       setError("Could not fetch the weather data. Please check the city name and try again.");
     } finally {
-      setLoading(false)
+      setLoading(false)  
     }
   };
 
