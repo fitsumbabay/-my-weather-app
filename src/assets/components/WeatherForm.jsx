@@ -6,7 +6,7 @@ const WeatherForm = ({ fetchWeather }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const city = cityInputRef.current.value; // Access the value of the input using the ref
-      fetchWeather(city);
+    fetchWeather(city);
   };
 
   return (
@@ -16,7 +16,6 @@ const WeatherForm = ({ fetchWeather }) => {
     >
       <input
         type="text"
-        onChange={(e) => setCity(e.target.value)}
         className="form-control mr-2"
         placeholder="Enter city"
         required
