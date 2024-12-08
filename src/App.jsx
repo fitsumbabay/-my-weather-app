@@ -14,6 +14,7 @@ const App = () => {
 
   const fetchWeather = async (city) => {
     const apiKey = import.meta.env.VITE_API_KEY;
+    setLoading(true); // Set loading to true before fetching data
     try {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
