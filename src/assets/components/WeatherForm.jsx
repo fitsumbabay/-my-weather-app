@@ -1,13 +1,12 @@
-
-import React, { useState } from "react";
+import  { useRef } from "react";
 
 const WeatherForm = ({ fetchWeather }) => {
-  const [city, setCity] = useState("");
+  const cityInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchWeather(city);
-    setCity("");
+    const city = cityInputRef.current.value; // Access the value of the input using the ref
+      fetchWeather(city);
   };
 
   return (
@@ -17,11 +16,11 @@ const WeatherForm = ({ fetchWeather }) => {
     >
       <input
         type="text"
-        value={city}
         onChange={(e) => setCity(e.target.value)}
         className="form-control mr-2"
         placeholder="Enter city"
         required
+        ref={cityInputRef}
       />
       <button type="submit" className="btn btn-primary">
         Get Weather

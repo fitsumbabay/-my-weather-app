@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import WeatherDisplay from './assets/components/WeatherDisplay';
 import ForecastDisplay from './assets/components/ForecastDisplay';
@@ -9,12 +9,16 @@ const App = () => {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false)
+  const loadingRef = useRef(false);
+  const [city, setCity] = useState("New York");
 
+  useEffect(() => {
+    fetchWeather(city);
+  }, [city]); // Fetch weather data when the city state changes
 
   const fetchWeather = async (city) => {
     const apiKey = import.meta.env.VITE_API_KEY;
-    setLoading(true); // Set loading to true before fetching data
+    loadingRef.current = true; // Set loading to true before fetching data
     try {
       const weatherResponse = await axios.get(
         `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
@@ -29,9 +33,11 @@ const App = () => {
     } catch (err) {
       setWeather(null);
       setForecast(null);
-      setError("Could not fetch the weather data. Please check the city name and try again.");
+      setError(
+        "Could not fetch the weather data. Please check the city name and try again."
+      );
     } finally {
-      setLoading(false)  
+      loadingRef.current = false;
     }
   };
 
@@ -39,7 +45,7 @@ const App = () => {
     <div className="container mt-4">
       <h1 className="text-center text-primary">Weather Application</h1>
       <WeatherForm fetchWeather={fetchWeather} />
-      {loading && (
+      {loadingRef.current && (
         <div className="text-center">
           <div className="spinner-border" role="status">
             <span className="visually-hidden">Loading...</span>

@@ -17,7 +17,7 @@ This is a weather application built using React and Vite, designed to provide re
    - `WeatherForm`: A form for users to input city names.
    - `WeatherDisplay`: Displays the current weather information.
    - `ForecastDisplay`: Shows the five-day weather forecast.
-3. **State Management**: Utilized React hooks (such as `useState` and `useEffect`) to manage state and side effects for data fetching.
+3. **State Management**: Utilized React hooks (such as `useState`, `useEffect` and `UseRef`) to manage state and side effects for data fetching.
 4. **API Integration**: Made API calls to the OpenWeather API to fetch weather data based on user input, handling responses and displaying the data appropriately.
 5. **Responsive Design**: Styled using bootstrap application to make it user-friendly across various devices.
 
