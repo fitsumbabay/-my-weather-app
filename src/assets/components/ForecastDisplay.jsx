@@ -2,7 +2,6 @@ const ForecastDisplay = ({ forecast }) => {
   // Group forecast data by unique date
   const uniqueDays = forecast.list.reduce((acc, day) => {
     const date = new Date(day.dt * 1000).toLocaleDateString();
-    
     // Check if the date already exists in the accumulator
     if (!acc.some(entry => entry.date === date)) {
       acc.push({
@@ -11,7 +10,6 @@ const ForecastDisplay = ({ forecast }) => {
         condition: day.weather[0].description,
       });
     }
-    
     return acc;
   }, []);
 

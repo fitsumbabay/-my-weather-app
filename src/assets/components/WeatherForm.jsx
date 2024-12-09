@@ -1,7 +1,6 @@
 import  { useRef } from "react";
-
 const WeatherForm = ({ fetchWeather }) => {
-  const cityInputRef = useRef(null);
+const cityInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
