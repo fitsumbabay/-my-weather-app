@@ -14,6 +14,9 @@ This is a weather application built using React and Vite, designed to provide re
 ## Approach Taken
 1. **Project Setup**: Created a new React application using Vite for improved performance and quicker development times.
 2. **Component Structure**: Built the application using a component-based structure. Key components include:
+   - `Header`: To provide navigation and branding for the application.
+   - `Forcast`:To display the five-day weather forecast
+   - `About`: To provide about the weather application.
    - `WeatherForm`: A form for users to input city names.
    - `WeatherDisplay`: Displays the current weather information.
    - `ForecastDisplay`: Shows the five-day weather forecast.
