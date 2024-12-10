@@ -6,7 +6,7 @@ import Home from "./assets/components/Home";
 import Forecast from "./assets/components/Forecast"; 
 import About from "./assets/components/About"; 
 import axios from "axios";
-
+import "./App.css";
 
 const App = () => {
   const [weather, setWeather] = useState(null);
@@ -45,7 +45,6 @@ const App = () => {
   };
 
   return (
-    <div className="bg-danger-subtle">
       <Router>
         <div className="container mt-4">
           <Header />
@@ -70,7 +69,7 @@ const App = () => {
           </Routes>
         </div>
       </Router>
-    </div>
+   
   );
 };
 
