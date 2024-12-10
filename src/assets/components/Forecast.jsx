@@ -1,22 +1,37 @@
-
-import React from 'react';
 const Forecast = ({ forecast }) => {
+  // Group forecast data by unique date
+  const uniqueDays = forecast.list.reduce((acc, day) => {
+    const date = new Date(day.dt * 1000).toLocaleDateString();
+    // Check if the date already exists in the accumulator
+    if (!acc.some(entry => entry.date === date)) {
+      acc.push({
+        date,
+        temp: day.main.temp,
+        condition: day.weather[0].description,
+      });
+    }
+    return acc;
+  }, []);
+
   return (
-    <div>
-      <h2 className="text-center text-primary">Forecast Details</h2>
-      {forecast && forecast.list ? (
-        forecast.list.map((day, index) => (
-          <div key={index}>
-            <h5>
-              {new Date(day.dt * 1000).toLocaleDateString()} - {day.weather[0].description} - {day.main.temp} °C
-            </h5>
+    <div className="mt-4">
+      <h3 className="text-center text-primary">5-Day Forecast</h3>
+      <div className="row">
+        {uniqueDays.map((day, index) => (
+          <div className="col-md-4 " key={index}>
+            <div className="card mb-4 bg-info text-light">
+              <div className="card-body text-center">
+                <h5 className="card-title">{day.date}</h5>
+                <p className="card-text">Temperature: {day.temp} °C</p>
+                <p className="card-text">Condition: {day.condition}</p>
+              </div>
+            </div>
           </div>
-        ))
-      ) : (
-        <p>No forecast data available.</p> // Fallback message if no data
-      )}
+        ))}
+      </div>
     </div>
   );
 };
 
 export default Forecast;
+

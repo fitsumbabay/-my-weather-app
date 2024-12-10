@@ -1,4 +1,3 @@
-
 import React from "react";
 import WeatherForm from "./WeatherForm";
 import WeatherDisplay from "./WeatherDisplay";
