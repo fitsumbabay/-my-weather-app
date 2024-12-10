@@ -3,6 +3,7 @@ import WeatherForm from "./WeatherForm";
 import WeatherDisplay from "./WeatherDisplay";
 import ForecastDisplay from "./ForecastDisplay";
 
+
 const Home = ({ fetchWeather, weather, forecast, loadingRef, error }) => {
   return (
     <div>

@@ -7,6 +7,7 @@ import Forecast from "./assets/components/Forecast";
 import About from "./assets/components/About"; 
 import axios from "axios";
 
+
 const App = () => {
   const [weather, setWeather] = useState(null);
   const [forecast, setForecast] = useState(null);
@@ -44,27 +45,32 @@ const App = () => {
   };
 
   return (
-    <Router>
-      <div className="container mt-4">
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <Home
-                fetchWeather={fetchWeather}
-                weather={weather}
-                forecast={forecast}
-                loadingRef={loadingRef}
-                error={error}
-              />
-            }
-          />
-          <Route path="/forecast" element={<Forecast forecast={forecast} />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="bg-danger-subtle">
+      <Router>
+        <div className="container mt-4">
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  fetchWeather={fetchWeather}
+                  weather={weather}
+                  forecast={forecast}
+                  loadingRef={loadingRef}
+                  error={error}
+                />
+              }
+            />
+            <Route
+              path="/forecast"
+              element={<Forecast forecast={forecast} />}
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </Router>
+    </div>
   );
 };
 
